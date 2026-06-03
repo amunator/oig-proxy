@@ -59,7 +59,7 @@ def build_local_ack(table_name: str, *, has_queued_data: bool = False) -> bytes:
             # Queue has data - return END with timestamp
             return build_end_frame_with_timestamp()
         # Queue empty - return ACK
-        return build_ack_only_frame()
+        return build_end_time_frame()
 
     # Weather and FW check - always return END
     if table_name in ("IsNewWeather", "IsNewFW"):
