@@ -63,7 +63,7 @@ def build_local_ack(table_name: str, *, has_queued_data: bool = False) -> bytes:
 
     # Weather and FW check - always return END
     if table_name in ("IsNewWeather", "IsNewFW"):
-        return build_end_only_frame()
+        return build_end_time_frame()  # bylo build_end_only_frame()
 
     # All tbl_* tables get ACK
     if table_name.startswith("tbl_"):
